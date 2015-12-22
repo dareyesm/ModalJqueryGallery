@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Galeria Simple de Imagenes...</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/estilos.css" />
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script>
+            $(function(){
+                $('#contenedor img').on({
+                    mouseover: function(){
+                        $(this).css({
+                            'cursor':'pointer',
+                            'border-color':'red'
+                        });
+                    },
+                    mouseout: function(){
+                        $(this).css({
+                            'cursor':'default',
+                            'border-color':'grey'
+                        });
+                    },
+                    click: function(){
+                        var UrlImage = $(this).attr('src');
+                        $('#principal').fadeOut(300, function(){
+                            $(this).attr('src', UrlImage);
+                        }).fadeIn(300);
+                    }
+                });
+                $(".open").click(function(){
+                    $('#bggaleria').fadeIn(300);
+                });
+                $(".close").click(function(){
+                    $('#bggaleria').fadeOut(300);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        Click para abrir la galeria de imagenes...<br/>
+        <a href="#" class="open">
+            <img id="thumbnail" height="150" width="150" 
+                 style="border: 3px solid grey"
+                 src="images/DSC04749.JPG" />
+        </a>
+        <div id="bggaleria">
+            <div id="galeria">
+                <div id="cerrar">
+                    <a href="#" class="close">Cerrar</a>
+                </div>
+                <img id="principal" height="450" width="550" style="border:3px solid grey" 
+                    src="images/DSC04749.JPG"/>
+               <br />
+               <div id="contenedor">
+                   <img src="images/DSC04749.JPG" class="img" />
+                   <img src="images/DSC04751.JPG" class="img" />
+                   <img src="images/DSC04752.JPG" class="img" />
+                   <img src="images/DSC04754.JPG" class="img" />
+                   <img src="images/DSC04756.JPG" class="img" />
+               </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
